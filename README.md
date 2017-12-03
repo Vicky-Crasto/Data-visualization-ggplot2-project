@@ -3,4 +3,4 @@ Using data visualization (ggplot2) to understand the data and derive insights to
 
 1. daywise_distribution_of_booking.png
 
-<img src="plot_images/1. daywise_distribution_of_booking.png" width="100">
+<img src="plot_images/1. daywise_distribution_of_booking.png" width="500">
