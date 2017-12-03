@@ -71,7 +71,7 @@ q1+geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = positio
  
 
 #### Daywise - timeslot of booking
-<img src="plot_images/2.Daywise_Timeslot_distribution_of_Completed_booking.png" alt="Daywise-Timeslot-distribution of Completed booking" width ="600">
+<img src="plot_images/2.Daywise_Timeslot_distribution_of_Completed_booking.png" alt="Daywise-Timeslot-distribution of Completed booking"  >
 
 ```
 taxidata%>%filter(Status=="Completed")%>%group_by(weekday,Time.Slot)%>%summarise(bookings=n())->weekday_timeslot_bookings
@@ -83,7 +83,7 @@ q01+geom_bar(stat = "identity", position = "dodge")+ geom_text(aes(label=booking
 
 
 #### Distribution of reason of cancellation
-<img src="plot_images/3.Daywise-Reason_for_cancellation.png" alt="Daywise- Reason for cancellation" width ="600">
+<img src="plot_images/3.Daywise-Reason_for_cancellation.png" alt="Daywise- Reason for cancellation"  >
 
 
 ```
@@ -94,7 +94,7 @@ q2+geom_bar(stat="identity") +coord_flip()+facet_wrap(~weekday)+ geom_text(aes(l
 ```
 
 #### Disrtibution of Datewise bookings - Timeslot
-<img src="plot_images/4.Datewise_bookings-Timeslot.png" alt="Datewise bookings - Timeslot" width ="600">
+<img src="plot_images/4.Datewise_bookings-Timeslot.png" alt="Datewise bookings - Timeslot"  >
 
 
 ```
@@ -106,7 +106,7 @@ q3+geom_bar(stat="identity") +facet_wrap(~date_day)+
 ```
 
 #### Distribution cancellation-weekdays
-<img src="plot_images/5.Daywisebookings-Timeslot-_Reason_for_cancellation.png" alt="Daywisebookings - Timeslot - Reason for cancellation" width ="600">
+<img src="plot_images/5.Daywisebookings-Timeslot-_Reason_for_cancellation.png" alt="Daywisebookings - Timeslot - Reason for cancellation"  >
 
 ```
 taxidata%>%filter(Status=="Cancelled")%>%group_by(weekday,Time.Slot,Reason.for.Cancellation)%>%arrange(weekday)%>%summarise(bookings=n())->cancell_timeslot_week
@@ -118,7 +118,7 @@ q4 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posit
  ```
 
 #### Distribution of bookings and mode of payment
-<img src="plot_images/6.Weekday booking and mode of payment.png " alt="Weekday booking and mode of payment " width ="600">
+<img src="plot_images/6.Weekday booking and mode of payment.png " alt="Weekday booking and mode of payment "  >
 
 ```
 taxidata%>%filter(Status=="Completed")%>% group_by(weekday,Payment.Mode)%>%summarise(bookings=n())->weekday_payment
@@ -129,7 +129,7 @@ q6 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posit
 ```
 
 #### Distribution of bookings and coupon usage
-<img src="plot_images/7.Weekday_booking_and_coupon_usage.png " alt="Weekday booking and coupon usage " width ="600">
+<img src="plot_images/7.Weekday_booking_and_coupon_usage.png " alt="Weekday booking and coupon usage "  >
 
 ```
 taxidata%>%group_by(weekday,Status,Payment.Mode,Coupon.Used)%>%summarise(bookings=n())->weekday_coupon
@@ -141,7 +141,7 @@ q7 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posit
 
 
 #### Distribution of coupon usage and timeslot
-<img src="plot_images/8.Timeslot_and_coupon_usage.png " alt=" Timeslot and coupon usage" width ="600">
+<img src="plot_images/8.Timeslot_and_coupon_usage.png " alt=" Timeslot and coupon usage"  >
 
 ```
 taxidata%>%filter(Status =="Completed")%>%group_by(weekday,Time.Slot,Coupon.Used)%>%summarise(bookings=n())->timeslot_coupon
@@ -152,7 +152,7 @@ q8 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posit
 ```
 
 #### Distribution based on pick up point
-<img src="plot_images/9.Top_most_pickup_location.png " alt="Top most pickup location " width ="600">
+<img src="plot_images/9.Top_most_pickup_location.png " alt="Top most pickup location "  >
 
 ```
 taxidata%>% group_by(Pick.Up.Location)%>%summarise(bookings=n())%>%arrange(desc(bookings))->pickuplocation
@@ -163,7 +163,7 @@ q10 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),hjust = 2,vjust
 
 
 #### Distribution top 5 pickup points (Locationwise)
-<img src="plot_images/10.Top_5_pickup_location(timeslots).png" alt="Top most pickup location " width ="600">
+<img src="plot_images/10.Top_5_pickup_location(timeslots).png" alt="Top most pickup location "  >
 
 ```
 taxidata%>% filter(Pick.Up.Location%in% c("WhiteField","Electronic City","Indira Nagar","K.r.puram","Old Madras Road"))%>%
@@ -176,7 +176,7 @@ q11 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posi
 ```
 
 #### Distribution of top 5 pickup location (daywise)
-<img src="plot_images/11.Top_5_pickup_location(weekdays).png " alt="Top most pickup location " width ="600">
+<img src="plot_images/11.Top_5_pickup_location(weekdays).png " alt="Top most pickup location "  >
 
 ```
 q12 <- ggplot(data = weekday_pickuplocation, aes(x=Pick.Up.Location,y=bookings,fill = Time.Slot))
@@ -187,7 +187,7 @@ q12 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posi
  ```
 
 #### Understanding booking status pickup location wise
-<img src="plot_images/12.Location_-_Booking_Status.png " alt=" Location - Booking Status" width ="600">
+<img src="plot_images/12.Location_-_Booking_Status.png " alt=" Location - Booking Status"  >
 
 ```
 taxidata%>%group_by(Pick.Up.Location,Status)%>%summarise(bookings=n())->pickup_cancel
@@ -198,7 +198,7 @@ q13 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posi
 ```
 
 #### Digging deeper to understand cancellations
-<img src="plot_images/13.Pick_up_location_-_Reason_for_cancellation.png " alt="Pick up location - Reason for cancellation " width ="600">
+<img src="plot_images/13.Pick_up_location_-_Reason_for_cancellation.png " alt="Pick up location - Reason for cancellation "  >
 
 ```
 taxidata%>% filter(Pick.Up.Location%in% c("WhiteField","Electronic City","Indira Nagar","K.r.puram","Old Madras Road","Marathalli")& Status =="Cancelled")%>%
@@ -211,7 +211,7 @@ q14+ geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posit
 
 
 ####  Cancellation issue in  Indira Nagar,Marathalli
-<img src="plot_images/14.Indira-_Martha.png" alt="Pick up location - Reason for cancellation " width ="600">
+<img src="plot_images/14.Indira-_Martha.png" alt="Pick up location - Reason for cancellation "  >
 
 ```
 taxidata%>% filter(Pick.Up.Location%in% c("Indira Nagar","Marathalli")& Status =="Cancelled")%>%
@@ -224,7 +224,7 @@ q15+ geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posit
 
 
 #### Top drop location
-<img src="plot_images/15.Top_most_drop_location.png " alt=" Top most drop location" width ="600">
+<img src="plot_images/15.Top_most_drop_location.png " alt=" Top most drop location"  >
 
 ```
 taxidata%>% group_by(Drop.Location)%>%summarise(bookings=n())%>%arrange(desc(bookings))->droplocation
@@ -234,7 +234,7 @@ q16 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),hjust = 2,vjust
 ```
 
 #### Drop location with time slot ( Completed)
-<img src="plot_images/16.Drop_location_with_time_slot .png " alt="Top most drop locations - Completed " width ="600">
+<img src="plot_images/16.Drop_location_with_time_slot .png " alt="Top most drop locations - Completed "  >
 
 ```
 taxidata%>% filter(Drop.Location%in% c("WhiteField","Electronic City","Indira Nagar","K.r.puram","Old Madras Road")& Status == "Completed")%>%
@@ -254,7 +254,7 @@ str(taxidata$ride_status)
 ```
 
 #### Trying to understand demand and supply - drop pointbased
-<img src="plot_images/17.Drop_location_with_time_slot.png " alt="Top most drop locations - Status " width ="600">
+<img src="plot_images/17.Drop_location_with_time_slot.png " alt="Top most drop locations - Status "  >
 
 ```
 taxidata%>% filter(Drop.Location%in% c("WhiteField","Electronic City","Indira Nagar","K.r.puram","Old Madras Road"))%>%
@@ -265,7 +265,7 @@ q19 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posi
   ```
 
 #### Trying to understand demand and supply - pickup based
-<img src="plot_images/18.Top_most_pick_locations-Ride_Status.png " alt=" Top most pick locations - Ride Status" width ="600">
+<img src="plot_images/18.Top_most_pick_locations-Ride_Status.png " alt=" Top most pick locations - Ride Status"  >
 
 ```
 taxidata%>% filter(Pick.Up.Location%in% c("WhiteField","Electronic City","Indira Nagar","K.r.puram","Old Madras Road","Marathalli"))%>%group_by(weekday,Pick.Up.Location,ride_status)%>%summarise(bookings=n())->pickup_ridestatus
@@ -276,7 +276,7 @@ q20 + geom_bar(stat = "identity")+ geom_text(aes(label=bookings),position = posi
 ```
 
 #### Route based distribution
-<img src="plot_images/19.Route_distribution.png " alt="Top most routes " width ="600">
+<img src="plot_images/19.Route_distribution.png " alt="Top most routes "  >
 
 ```
 taxidata%>%group_by(route)%>%summarise(bookings=n())%>%arrange(desc(bookings))%>%filter(bookings>80)->route_bookings
@@ -295,7 +295,7 @@ bangalore_map <- get_map(location = c(lon=mean(lon),lat=mean(lat)), zoom = 12,ma
 ```
 
 #### Plot pickup points on map
-<img src="plot_images/20.Pickup_location_on_map.png " alt="Pickup Location in Bangalore " width ="600">
+<img src="plot_images/20.Pickup_location_on_map.png " alt="Pickup Location in Bangalore "  >
 
 ```
 ggmap(bangalore_map) +geom_point(data = taximan_pick, aes(x = Longitute, y = Latitude, alpha = 0.4, size = Pickup, color = Pickup)) +
@@ -304,7 +304,7 @@ ggmap(bangalore_map) +geom_point(data = taximan_pick, aes(x = Longitute, y = Lat
 ```
 
 ### Plotting drop location on map
-<img src="plot_images/21.drop_location.png " alt="Drop Location in Bangalore " width ="600">
+<img src="plot_images/21.drop_location.png " alt="Drop Location in Bangalore "  >
 
 ```
 ggmap(bangalore_map) +geom_point(data = taximan_drop, aes(x = Longitute, y = Latitude, alpha = 0.4, size = Drop, color = Drop)) +
