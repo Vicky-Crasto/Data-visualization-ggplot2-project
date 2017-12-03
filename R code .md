@@ -60,7 +60,7 @@ taxidata$Time.Slot<-factor(taxidata$Time.Slot,levels = c("4 - 10 pm","11 - 4 pm"
 ```
 
 #### Plot Daywise distribution of booking   
-<img src="plot_images/1. daywise_distribution_of_booking.png" alt="Daywise distribution of booking" width ="600">
+<img src="plot_images/1. daywise_distribution_of_booking.png" alt="Daywise distribution of booking">
 
 ```
 taxidata%>%group_by(weekday,Status)%>%arrange(weekday)%>%summarise(bookings=n())->weekdays_status
